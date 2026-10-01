@@ -1,28 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>ResumeCraft | Resume Builder</title>
 
-  <meta
-    name="description"
-    content="Create a professional resume with ResumeCraft."
-  >
+  <meta name="description" content="Create a professional resume with ResumeCraft.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-  >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js" defer></script>
@@ -30,5 +23,78 @@
 
 <body>
 
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+
+      <a href="index.html" class="logo">
+        <i class="fa-solid fa-file-lines"></i>
+        <span class="logo-text">
+          <span class="logo-resume">Resume</span><span class="logo-craft">Craft</span>
+        </span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#templates">Templates</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#features">Features</a></li>
+      </ul>
+
+      <a href="builder.html" class="nav-button">
+        Build Your Resume
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-menu"
+        aria-expanded="false">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+
+    </nav>
+  </header>
+
+  <div class="menu-overlay" hidden></div>
+
+  <aside class="sidebar" id="mobile-menu" aria-label="Mobile navigation" aria-hidden="true">
+
+    <div class="sidebar-header">
+
+      <a href="index.html" class="sidebar-logo">
+        <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+        <span>ResumeCraft</span>
+      </a>
+
+      <button class="menu-close" type="button" aria-label="Close navigation menu">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+
+    </div>
+
+    <nav class="sidebar-nav">
+
+      <a href="#templates">
+        <span>Templates</span>
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      </a>
+
+      <a href="#how-it-works">
+        <span>How It Works</span>
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      </a>
+
+      <a href="#features">
+        <span>Features</span>
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      </a>
+
+      <a href="builder.html" class="sidebar-button">
+        Build Your Resume
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+
+    </nav>
+
+  </aside>
+
 </body>
+
 </html>

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,19 +14,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
   <link rel="stylesheet" href="css/style.css">
+
   <script src="js/script.js" defer></script>
+
 </head>
 
 <body>
 
   <header class="site-header">
+
     <nav class="navbar container" aria-label="Main navigation">
 
       <a href="index.html" class="logo">
@@ -51,9 +55,12 @@
       </button>
 
     </nav>
+
   </header>
 
+
   <div class="menu-overlay" hidden></div>
+
 
   <aside class="sidebar">
 
@@ -74,6 +81,7 @@
     </div>
 
     <nav class="sidebar-nav">
+
       <a href="#templates">Templates</a>
       <a href="#how-it-works">How It Works</a>
       <a href="#features">Features</a>
@@ -82,15 +90,20 @@
         Build Your Resume
         <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
       </a>
+
     </nav>
 
   </aside>
 
+
   <main>
 
     <section class="hero">
+
       <div class="container hero-container">
+
         <div class="hero-content">
+
           <h1>
             Build a resume that
             <span>gets to the point.</span>
@@ -102,6 +115,7 @@
           </p>
 
           <div class="hero-buttons">
+
             <a href="builder.html" class="primary-button">
               Start Building
               <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
@@ -110,9 +124,11 @@
             <a href="templates.html" class="secondary-button">
               View Templates
             </a>
+
           </div>
 
           <div class="hero-points">
+
             <span>
               <i class="fa-solid fa-check" aria-hidden="true"></i>
               No sign-up required
@@ -122,11 +138,16 @@
               <i class="fa-solid fa-check" aria-hidden="true"></i>
               Free to use
             </span>
+
           </div>
+
         </div>
 
+
         <div class="hero-preview">
+
           <div class="preview-toolbar">
+
             <div class="preview-title">
               <span class="preview-icon">
                 <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
@@ -136,11 +157,15 @@
             </div>
 
             <span class="preview-size">100%</span>
+
           </div>
 
           <div class="preview-area">
+
             <div class="resume-preview">
+
               <div class="resume-preview-header">
+
                 <div>
                   <h2>Muhammad <span>Ali</span></h2>
                   <p>Front-End Developer</p>
@@ -150,11 +175,14 @@
                   <span>ali.dev@example.com</span>
                   <span>Lahore, Pakistan</span>
                 </div>
+
               </div>
 
               <div class="resume-preview-body">
+
                 <div class="preview-section">
                   <h3>Profile</h3>
+
                   <p>
                     Front-end developer interested in building simple, responsive
                     and useful web experiences.
@@ -162,9 +190,7 @@
                 </div>
 
                 <div class="preview-section">
-                  <div class="preview-section-heading">
-                    <h3>Experience</h3>
-                  </div>
+                  <h3>Experience</h3>
 
                   <div class="preview-entry-heading">
                     <strong>Front-End Developer</strong>
@@ -200,11 +226,264 @@
                     <span>Bootstrap</span>
                   </div>
                 </div>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </div>
+
+    </section>
+
+
+    <section class="templates-showcase" id="templates">
+
+      <div class="container templates-showcase-container">
+
+        <div class="templates-content">
+
+          <span class="section-label">Templates</span>
+
+          <h2>
+            Three layouts. One starting point:
+            <span>your resume.</span>
+          </h2>
+
+          <p class="templates-description">
+            Pick a layout that feels right for your resume.
+            You can change the content and customize it later.
+          </p>
+
+          <div class="template-options">
+
+            <a href="builder.html?template=modern" class="template-option active">
+
+              <span class="template-number">01</span>
+
+              <div class="template-option-text">
+                <strong>Modern</strong>
+                <span>Clean and structured</span>
+              </div>
+
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+
+            </a>
+
+            <a href="builder.html?template=minimal" class="template-option">
+
+              <span class="template-number">02</span>
+
+              <div class="template-option-text">
+                <strong>Minimal</strong>
+                <span>Simple and focused</span>
+              </div>
+
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+
+            </a>
+
+            <a href="builder.html?template=classic" class="template-option">
+
+              <span class="template-number">03</span>
+
+              <div class="template-option-text">
+                <strong>Classic</strong>
+                <span>Traditional and formal</span>
+              </div>
+
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+
+            </a>
+
+          </div>
+
+          <a href="templates.html" class="templates-link">
+            Explore Templates
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+
+        </div>
+
+
+        <div class="template-preview-area">
+
+          <div class="template-preview-top">
+
+            <div>
+              <span>Selected template</span>
+              <strong>Modern</strong>
+            </div>
+
+            <span class="template-preview-number">01 / 03</span>
+
+          </div>
+
+          <div class="template-paper-wrap">
+
+            <div class="template-paper">
+
+              <div class="template-paper-header">
+
+                <div>
+                  <h3>Daniel <span>Reed</span></h3>
+                  <p>Product Designer</p>
+                </div>
+
+                <div class="template-paper-contact">
+                  <span>daniel@example.com</span>
+                  <span>London, United Kingdom</span>
+                </div>
+
+              </div>
+
+              <div class="template-paper-body">
+
+                <aside class="template-paper-side">
+
+                  <div class="paper-section">
+
+                    <h4>Contact</h4>
+
+                    <div class="paper-contact-item">
+                      <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                      <span>daniel@example.com</span>
+                    </div>
+
+                    <div class="paper-contact-item">
+                      <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                      <span>London, UK</span>
+                    </div>
+
+                    <div class="paper-contact-item">
+                      <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                      <span>danielreed</span>
+                    </div>
+
+                  </div>
+
+                  <div class="paper-section">
+
+                    <h4>Skills</h4>
+
+                    <div class="paper-skills">
+                      <span>Product Design</span>
+                      <span>UI Design</span>
+                      <span>Prototyping</span>
+                      <span>User Research</span>
+                    </div>
+
+                  </div>
+
+                  <div class="paper-section">
+
+                    <h4>Languages</h4>
+
+                    <div class="paper-language">
+                      <span>English</span>
+                      <small>Native</small>
+                    </div>
+
+                    <div class="paper-language">
+                      <span>Spanish</span>
+                      <small>Intermediate</small>
+                    </div>
+
+                  </div>
+
+                </aside>
+
+
+                <div class="template-paper-main">
+
+                  <div class="paper-main-section">
+
+                    <h4>Profile</h4>
+
+                    <p>
+                      Product designer focused on creating clear and useful
+                      digital experiences for everyday users.
+                    </p>
+
+                  </div>
+
+                  <div class="paper-main-section">
+
+                    <h4>Experience</h4>
+
+                    <div class="paper-job">
+
+                      <div class="paper-job-heading">
+
+                        <div>
+                          <strong>Senior Product Designer</strong>
+                          <span>North Studio</span>
+                        </div>
+
+                        <small>2023 — Present</small>
+
+                      </div>
+
+                      <ul>
+                        <li>Designed product flows for web applications.</li>
+                        <li>Worked with developers from concept to release.</li>
+                      </ul>
+
+                    </div>
+
+                    <div class="paper-job">
+
+                      <div class="paper-job-heading">
+
+                        <div>
+                          <strong>UI Designer</strong>
+                          <span>Form Digital</span>
+                        </div>
+
+                        <small>2021 — 2023</small>
+
+                      </div>
+
+                      <ul>
+                        <li>Created interfaces and reusable design systems.</li>
+                      </ul>
+
+                    </div>
+
+                  </div>
+
+                  <div class="paper-main-section">
+
+                    <h4>Education</h4>
+
+                    <div class="paper-job-heading">
+
+                      <div>
+                        <strong>B.A. Digital Design</strong>
+                        <span>University of the Arts</span>
+                      </div>
+
+                      <small>2018 — 2021</small>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </section>
 
   </main>

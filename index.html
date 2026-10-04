@@ -99,36 +99,33 @@
   <main>
 
     <section class="hero">
+      <div class="hero-shape"></div>
 
       <div class="container hero-container">
 
         <div class="hero-content">
-
           <h1>
-            Build a resume that
-            <span>gets to the point.</span>
+            Turn your skills into
+            <span>opportunities.</span>
           </h1>
 
           <p class="hero-description">
-            Create your resume, edit each section and see your changes as you work.
-            Choose a template and make it your own.
+            Build a clean resume, choose a style that fits you, and make changes
+            while you preview the result.
           </p>
 
           <div class="hero-buttons">
-
             <a href="builder.html" class="primary-button">
-              Start Building
+              Build Your Resume
               <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
 
             <a href="templates.html" class="secondary-button">
               View Templates
             </a>
-
           </div>
 
           <div class="hero-points">
-
             <span>
               <i class="fa-solid fa-check" aria-hidden="true"></i>
               No sign-up required
@@ -138,61 +135,91 @@
               <i class="fa-solid fa-check" aria-hidden="true"></i>
               Free to use
             </span>
-
           </div>
-
         </div>
 
+        <div class="hero-visual">
 
-        <div class="hero-preview">
-
-          <div class="preview-toolbar">
-
-            <div class="preview-title">
-              <span class="preview-icon">
-                <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
-              </span>
-
-              <span>Resume Preview</span>
+          <div class="resume-card resume-back">
+            <div class="back-header">
+              <h3>Emily Rose</h3>
+              <p>Graphic Designer</p>
             </div>
 
-            <span class="preview-size">100%</span>
+            <div class="back-section">
+              <h4>Profile</h4>
+              <span class="resume-line line-long"></span>
+              <span class="resume-line line-medium"></span>
+            </div>
 
+            <div class="back-section">
+              <h4>Experience</h4>
+              <span class="resume-line line-long"></span>
+              <span class="resume-line line-medium"></span>
+              <span class="resume-line line-short"></span>
+            </div>
+
+            <div class="back-section">
+              <h4>Education</h4>
+              <span class="resume-line line-medium"></span>
+              <span class="resume-line line-short"></span>
+            </div>
+
+            <div class="back-section">
+              <h4>Skills</h4>
+
+              <div class="back-skills">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
           </div>
 
-          <div class="preview-area">
+          <div class="resume-card resume-main">
 
-            <div class="resume-preview">
+            <div class="resume-header">
+              <h2>Muhammad <span>Ali</span></h2>
+              <p>Front-End Developer</p>
+            </div>
 
-              <div class="resume-preview-header">
+            <div class="resume-contact">
+              <span>
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                ali@example.com
+              </span>
+
+              <span>
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                Lahore, Pakistan
+              </span>
+            </div>
+
+            <div class="resume-content">
+
+              <div class="resume-section">
+                <div class="section-icon">
+                  <i class="fa-solid fa-user" aria-hidden="true"></i>
+                </div>
 
                 <div>
-                  <h2>Muhammad <span>Ali</span></h2>
-                  <p>Front-End Developer</p>
-                </div>
-
-                <div class="resume-preview-contact">
-                  <span>ali.dev@example.com</span>
-                  <span>Lahore, Pakistan</span>
-                </div>
-
-              </div>
-
-              <div class="resume-preview-body">
-
-                <div class="preview-section">
                   <h3>Profile</h3>
-
                   <p>
-                    Front-end developer interested in building simple, responsive
-                    and useful web experiences.
+                    Front-end developer interested in building simple,
+                    responsive and useful web experiences.
                   </p>
                 </div>
+              </div>
 
-                <div class="preview-section">
+              <div class="resume-section">
+                <div class="section-icon">
+                  <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+                </div>
+
+                <div>
                   <h3>Experience</h3>
 
-                  <div class="preview-entry-heading">
+                  <div class="resume-row">
                     <strong>Front-End Developer</strong>
                     <span>2025 — Present</span>
                   </div>
@@ -204,29 +231,34 @@
                     <li>Worked with HTML, CSS and JavaScript</li>
                   </ul>
                 </div>
+              </div>
 
-                <div class="preview-section">
-                  <h3>Education</h3>
-
-                  <div class="preview-entry-heading">
-                    <strong>B.Sc. Computer Science</strong>
-                    <span>2022 — 2026</span>
-                  </div>
-
-                  <p>University Name</p>
+              <div class="resume-section">
+                <div class="section-icon">
+                  <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
                 </div>
 
-                <div class="preview-section">
+                <div>
+                  <h3>Education</h3>
+                  <strong>B.Sc. Computer Science</strong>
+                  <p>University Name</p>
+                </div>
+              </div>
+
+              <div class="resume-section">
+                <div class="section-icon">
+                  <i class="fa-solid fa-code" aria-hidden="true"></i>
+                </div>
+
+                <div>
                   <h3>Skills</h3>
 
-                  <div class="preview-skills">
+                  <div class="resume-skills">
                     <span>HTML</span>
                     <span>CSS</span>
                     <span>JavaScript</span>
-                    <span>Bootstrap</span>
                   </div>
                 </div>
-
               </div>
 
             </div>
@@ -236,9 +268,7 @@
         </div>
 
       </div>
-
     </section>
-
 
     <section class="templates-showcase" id="templates">
 
@@ -483,6 +513,189 @@
         </div>
 
       </div>
+
+    </section>
+    <section class="how-it-works" id="how-it-works">
+
+      <div class="container">
+
+        <div class="how-heading">
+
+          <span class="section-label">How It Works</span>
+
+          <h2>
+            Turn your details into a
+            <span>resume that's ready to use.</span>
+          </h2>
+
+          <p>
+            Bring your information. ResumeCraft helps you organize it
+            into a clean, structured resume.
+          </p>
+
+        </div>
+
+
+        <div class="resume-flow">
+
+          <div class="raw-details">
+
+            <span class="flow-label">Your Information</span>
+
+            <div class="detail-list">
+
+              <div class="detail-item">
+                <span>Personal</span>
+                <strong>Name, email and contact</strong>
+              </div>
+
+              <div class="detail-item">
+                <span>Experience</span>
+                <strong>Roles and achievements</strong>
+              </div>
+
+              <div class="detail-item">
+                <span>Education</span>
+                <strong>Degree and studies</strong>
+              </div>
+
+              <div class="detail-item">
+                <span>Projects</span>
+                <strong>Work you've built</strong>
+              </div>
+
+              <div class="detail-item">
+                <span>Skills</span>
+                <strong>What you're good at</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="flow-middle">
+
+            <span class="flow-brand">
+              <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
+              ResumeCraft
+            </span>
+
+            <div class="flow-arrow">
+              <span></span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </div>
+
+            <span class="flow-process">
+              Choose
+              <span></span>
+              Build
+              <span></span>
+              Save
+            </span>
+
+          </div>
+
+
+          <div class="finished-resume">
+
+            <span class="flow-label">Finished Resume</span>
+
+            <div class="finished-document">
+
+              <div class="finished-header">
+
+                <div>
+                  <h3>Your <span>Name</span></h3>
+                  <p>Professional Title</p>
+                </div>
+
+                <div class="finished-contact">
+                  <span>Email & Phone</span>
+                  <span>Location</span>
+                </div>
+
+              </div>
+
+
+              <div class="finished-body">
+
+                <div class="finished-section">
+
+                  <h4>Profile</h4>
+
+                  <p>
+                    A short introduction that summarizes your background,
+                    strengths and goals.
+                  </p>
+
+                </div>
+
+                <div class="finished-section">
+
+                  <h4>Experience</h4>
+
+                  <div class="finished-entry">
+
+                    <div>
+                      <strong>Your Role</strong>
+                      <span>Company or Organization</span>
+                    </div>
+
+                    <small>Dates</small>
+
+                  </div>
+
+                </div>
+
+                <div class="finished-section">
+
+                  <h4>Education</h4>
+
+                  <div class="finished-entry">
+
+                    <div>
+                      <strong>Your Degree</strong>
+                      <span>School or University</span>
+                    </div>
+
+                    <small>Dates</small>
+
+                  </div>
+
+                </div>
+
+                <div class="finished-section">
+
+                  <h4>Skills</h4>
+
+                  <div class="finished-skills">
+                    <span>Your Skill</span>
+                    <span>Your Skill</span>
+                    <span>Your Skill</span>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="how-bottom">
+
+            <p>
+              Choose a template. Add your details. Save the result.
+            </p>
+
+            <a href="builder.html">
+              Start Building
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+
+          </div>
+
+        </div>
 
     </section>
 

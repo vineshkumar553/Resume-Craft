@@ -48,6 +48,15 @@ button {
   border: none;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -86,7 +95,8 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 23px;
+  font-family: var(--font-heading);
+  font-size: 25px;
   font-weight: 800;
   letter-spacing: -0.7px;
 }
@@ -95,9 +105,9 @@ img {
   justify-self: start;
 }
 
-.logo i,
-.sidebar-logo i {
-  color: var(--color-primary);
+.logo img,
+.sidebar-logo img {
+  width: 1.7rem;
 }
 
 .logo-text {
@@ -384,11 +394,15 @@ img {
 .hero h1 {
   font-family: var(--font-heading);
   font-size: clamp(48px, 5vw, 70px);
-  line-height: 1.05;
+  line-height: 1.1;
   letter-spacing: -2px;
 }
 
 .hero h1 span {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.12em;
+  font-weight: 600;
+  font-style: italic;
   color: var(--color-primary);
 }
 
@@ -2203,7 +2217,7 @@ img {
   font-weight: 800;
 }
 
-.cta-step > span:nth-child(2) {
+.cta-step>span:nth-child(2) {
   color: var(--color-text);
   font-size: 13px;
   font-weight: 700;
@@ -2269,7 +2283,7 @@ img {
     gap: 8px;
   }
 
-  .cta-step > span:nth-child(2) {
+  .cta-step>span:nth-child(2) {
     font-size: 11px;
   }
 
@@ -2334,7 +2348,7 @@ img {
     border-bottom: 1px solid var(--color-border);
   }
 
-  .cta-step > span:nth-child(2) {
+  .cta-step>span:nth-child(2) {
     font-size: 12px;
   }
 }

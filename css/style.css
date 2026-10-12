@@ -120,6 +120,7 @@ img {
 
 .logo-craft {
   color: var(--color-primary-light);
+  font-style: oblique;
 }
 
 .nav-links {

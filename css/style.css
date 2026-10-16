@@ -120,7 +120,6 @@ img {
 
 .logo-craft {
   color: var(--color-primary-light);
-  font-style: oblique;
 }
 
 .nav-links {
@@ -132,11 +131,42 @@ img {
 }
 
 .nav-links a {
+  position: relative;
   color: var(--color-muted);
   font-size: 14px;
   font-weight: 600;
   transition: color 0.2s ease;
 }
+
+
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+
+.sidebar-nav a.active:not(.sidebar-button) {
+  color: var(--color-primary);
+  font-weight: 700;
+  border-left: 3px solid var(--color-primary);
+  padding-left: 12px;
+}
+
 
 .nav-button {
   justify-self: end;

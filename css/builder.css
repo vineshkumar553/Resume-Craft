@@ -3,3 +3,157 @@
     min-height: 100vh;
     background-color: #f7f4f5;
 }
+
+
+.builder-page {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px 35px;
+}
+
+.builder-header {
+    margin-bottom: 35px;
+}
+
+.builder-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.builder-label {
+    display: inline-block;
+    color: var(--color-primary);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    margin-bottom: 10px;
+}
+
+.builder-heading h1 {
+    font-family: var(--font-heading);
+    font-size: 34px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 8px;
+}
+
+.builder-heading p {
+    color: var(--color-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.builder-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.save-status {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #47866a;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.reset-button,
+.download-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 17px;
+    border-radius: 7px;
+    font-family: var(--font-main);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.reset-button {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+
+.download-button {
+    background: var(--color-primary);
+    color: #fff;
+    border: 1px solid var(--color-primary);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .reset-button:hover {
+        background: var(--color-background);
+    }
+
+    .download-button:hover {
+        background: var(--color-primary-hover);
+        border-color: var(--color-primary-hover);
+    }
+}
+
+@media (max-width: 1024px) {
+    .builder-page {
+        padding: 35px 25px;
+    }
+
+    .builder-header-content {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .builder-page {
+        padding: 30px 20px;
+    }
+
+    .builder-header {
+        margin-bottom: 28px;
+    }
+
+    .builder-heading h1 {
+        font-size: 30px;
+    }
+
+    .builder-actions {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .builder-page {
+        padding: 25px 16px;
+    }
+
+    .builder-heading h1 {
+        font-size: 27px;
+    }
+
+    .builder-heading p {
+        font-size: 13px;
+    }
+
+    .builder-actions {
+        width: 100%;
+        gap: 9px;
+    }
+
+    .save-status {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .reset-button,
+    .download-button {
+        flex: 1;
+        padding: 12px 9px;
+        font-size: 11px;
+    }
+}

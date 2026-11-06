@@ -88,9 +88,213 @@
     </aside>
 
 
+
     <main class="builder-page">
 
+        <section class="builder-header">
+
+            <div class="builder-header-content">
+
+                <div class="builder-heading">
+                    <span class="builder-label">RESUME BUILDER</span>
+                    <h1>Create Your Resume</h1>
+                    <p>Build a professional resume that reflects your skills and experience</p>
+                </div>
+
+                <div class="builder-actions">
+
+                    <span class="save-status">
+                        <i class="fa-solid fa-cloud-check"></i>
+                        All changes saved
+                    </span>
+
+                    <button class="reset-button" type="button">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        Reset
+                    </button>
+
+                    <button class="download-button" type="button">
+                        <i class="fa-solid fa-download"></i>
+                        Download PDF
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+        <section class="builder-workspace">
+
+            <div class="editor-panel">
+
+                <div class="editor-heading">
+                    <h2>Build Your Resume</h2>
+                    <p>Fill in your details to create your professional resume</p>
+                </div>
+
+                <div class="editor-accordions">
+
+                    <div class="editor-accordion active">
+                        <button class="accordion-header" type="button">
+                            <span>Personal Details</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+
+                        <div class="accordion-content">
+
+                        </div>
+                    </div>
+
+                    <div class="editor-accordion">
+                        <button class="accordion-header" type="button">
+                            <span>Professional Summary</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content"></div>
+                    </div>
+
+                    <div class="editor-accordion">
+                        <button class="accordion-header" type="button">
+                            <span>Education</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content"></div>
+                    </div>
+
+                    <div class="editor-accordion">
+                        <button class="accordion-header" type="button">
+                            <span>Work Experience</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content"></div>
+                    </div>
+
+                    <div class="editor-accordion">
+                        <button class="accordion-header" type="button">
+                            <span>Projects</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content"></div>
+                    </div>
+
+                    <div class="editor-accordion">
+                        <button class="accordion-header" type="button">
+                            <span>Skills</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content"></div>
+                    </div>
+
+                    <div class="editor-accordion">
+                        <button class="accordion-header" type="button">
+                            <span>Certifications</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content"></div>
+                    </div>
+
+                    <div class="editor-accordion">
+                        <button class="accordion-header" type="button">
+                            <span>Languages</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content"></div>
+                    </div>
+
+                    <div class="editor-accordion">
+                        <button class="accordion-header" type="button">
+                            <span>Customize</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="preview-panel">
+
+                <div class="preview-header">
+
+                    <div class="preview-heading">
+                        <h2>Live Preview</h2>
+                        <p>Your resume updates as you make changes</p>
+                    </div>
+
+                    <div class="template-switcher">
+                        <button class="template-button active" data-template="modern" type="button">Modern</button>
+                        <button class="template-button" data-template="minimal" type="button">Minimal</button>
+                        <button class="template-button" data-template="creative" type="button">Creative</button>
+                    </div>
+
+                </div>
+
+                <div class="resume-preview">
+
+                    <div class="resume-paper">
+
+                        <div class="resume-header">
+
+                            <h1 class="resume-name">Your Name</h1>
+                            <p class="resume-title">Your Professional Title</p>
+
+                        </div>
+
+                        <div class="resume-content">
+
+                            <section class="resume-section resume-contact">
+                                <h3>Contact</h3>
+                                <div class="resume-contact-info"></div>
+                            </section>
+
+                            <section class="resume-section resume-summary">
+                                <h3>Professional Summary</h3>
+                                <p>Your professional summary will appear here</p>
+                            </section>
+
+                            <section class="resume-section resume-experience">
+                                <h3>Experience</h3>
+                                <div class="resume-experience-list"></div>
+                            </section>
+
+                            <section class="resume-section resume-education">
+                                <h3>Education</h3>
+                                <div class="resume-education-list"></div>
+                            </section>
+
+                            <section class="resume-section resume-projects">
+                                <h3>Projects</h3>
+                                <div class="resume-project-list"></div>
+                            </section>
+
+                            <section class="resume-section resume-skills">
+                                <h3>Skills</h3>
+                                <div class="resume-skills-list"></div>
+                            </section>
+
+                            <section class="resume-section resume-certifications">
+                                <h3>Certifications</h3>
+                                <div class="resume-certifications-list"></div>
+                            </section>
+
+                            <section class="resume-section resume-languages">
+                                <h3>Languages</h3>
+                                <div class="resume-languages-list"></div>
+                            </section>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
     </main>
+
 
     <script src="js/builder.js"></script>
     <script src="js/script.js"></script>

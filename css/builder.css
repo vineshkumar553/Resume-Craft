@@ -472,10 +472,13 @@
     font-size: 13px;
     line-height: 1.6;
 }
+.modern-resume.active {
+    display: grid;
+}
 
 .modern-resume {
-    display: grid;
     grid-template-columns: 34% minmax(0, 1fr);
+    display: none;
 }
 
 .modern-sidebar {

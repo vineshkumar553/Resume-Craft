@@ -123,6 +123,7 @@
 
         </section>
 
+
         <section class="builder-workspace">
 
             <div class="editor-panel">
@@ -142,6 +143,36 @@
 
                         <div class="accordion-content">
 
+                            <div class="form-group">
+                                <label for="full-name">Full Name</label>
+                                <input type="text" id="full-name" placeholder="e.g. John Smith">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="professional-title">Professional Title</label>
+                                <input type="text" id="professional-title" placeholder="e.g. Web Developer">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" placeholder="e.g. john@gmail.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" placeholder="e.g. +92 300 1234567">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="location">Location</label>
+                                <input type="text" id="location" placeholder="e.g. Karachi, Pakistan">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="website">Website / LinkedIn</label>
+                                <input type="text" id="website" placeholder="e.g. linkedin.com/in/john">
+                            </div>
+
                         </div>
                     </div>
 
@@ -151,7 +182,15 @@
                             <i class="fa-solid fa-chevron-down"></i>
                         </button>
 
-                        <div class="accordion-content"></div>
+                        <div class="accordion-content">
+                            <div class="form-group">
+                                <label for="professional-summary">Professional Summary</label>
+                                <textarea id="professional-summary" rows="5"
+                                    placeholder="Write a short summary about your experience, skills and career goals"></textarea>
+                            </div>
+
+                            <span class="form-hint">Write 2–4 sentences highlighting your professional background</span>
+                        </div>
                     </div>
 
                     <div class="editor-accordion">
@@ -160,7 +199,52 @@
                             <i class="fa-solid fa-chevron-down"></i>
                         </button>
 
-                        <div class="accordion-content"></div>
+                        <div class="accordion-content">
+                            <div class="education-list">
+
+                                <div class="education-item">
+
+                                    <div class="form-group">
+                                        <label>Institution Name</label>
+                                        <input type="text" class="education-institution"
+                                            placeholder="e.g. University of London">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Degree / Qualification</label>
+                                        <input type="text" class="education-degree"
+                                            placeholder="e.g. Bachelor's in Computer Science">
+                                    </div>
+
+                                    <div class="form-row">
+
+                                        <div class="form-group">
+                                            <label>Start Date</label>
+                                            <input type="text" class="education-start" placeholder="e.g. 2022">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>End Date</label>
+                                            <input type="text" class="education-end" placeholder="e.g. 2026">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Additional Details</label>
+                                        <textarea class="education-details" rows="3"
+                                            placeholder="Add grades, achievements or relevant coursework"></textarea>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <button class="add-button add-education" type="button">
+                                <i class="fa-solid fa-plus"></i>
+                                Add Education
+                            </button>
+                        </div>
                     </div>
 
                     <div class="editor-accordion">
@@ -169,7 +253,62 @@
                             <i class="fa-solid fa-chevron-down"></i>
                         </button>
 
-                        <div class="accordion-content"></div>
+
+                        <div class="accordion-content">
+
+                            <div class="experience-list">
+
+                                <div class="experience-item">
+
+                                    <div class="form-group">
+                                        <label>Job Title</label>
+                                        <input type="text" class="experience-title"
+                                            placeholder="e.g. Front-End Developer">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Company Name</label>
+                                        <input type="text" class="experience-company"
+                                            placeholder="e.g. ABC Technologies">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Location</label>
+                                        <input type="text" class="experience-location"
+                                            placeholder="e.g. Karachi, Pakistan">
+                                    </div>
+
+                                    <div class="form-row">
+
+                                        <div class="form-group">
+                                            <label>Start Date</label>
+                                            <input type="text" class="experience-start" placeholder="e.g. Jan 2024">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>End Date</label>
+                                            <input type="text" class="experience-end" placeholder="e.g. Dec 2025">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Job Description</label>
+                                        <textarea class="experience-description" rows="4"
+                                            placeholder="Describe your responsibilities and achievements"></textarea>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <button class="add-button add-experience" type="button">
+                                <i class="fa-solid fa-plus"></i>
+                                Add Experience
+                            </button>
+
+                        </div>
+
                     </div>
 
                     <div class="editor-accordion">
@@ -178,7 +317,47 @@
                             <i class="fa-solid fa-chevron-down"></i>
                         </button>
 
-                        <div class="accordion-content"></div>
+
+                        <div class="accordion-content">
+
+                            <div class="project-list">
+
+                                <div class="project-item">
+
+                                    <div class="form-group">
+                                        <label>Project Name</label>
+                                        <input type="text" class="project-name" placeholder="e.g. Portfolio Website">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Technologies Used</label>
+                                        <input type="text" class="project-technologies"
+                                            placeholder="e.g. HTML, CSS, JavaScript">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Project Link</label>
+                                        <input type="url" class="project-link"
+                                            placeholder="e.g. https://github.com/username/project">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Project Description</label>
+                                        <textarea class="project-description" rows="4"
+                                            placeholder="Describe your project and its main features"></textarea>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <button class="add-button add-project" type="button">
+                                <i class="fa-solid fa-plus"></i>
+                                Add Project
+                            </button>
+
+                        </div>
+
                     </div>
 
                     <div class="editor-accordion">
@@ -187,7 +366,23 @@
                             <i class="fa-solid fa-chevron-down"></i>
                         </button>
 
-                        <div class="accordion-content"></div>
+
+                        <div class="accordion-content">
+
+                            <div class="form-group">
+                                <label for="skill-input">Add Your Skills</label>
+                                <input type="text" id="skill-input" placeholder="e.g. HTML, CSS, Python">
+                            </div>
+
+                            <button class="add-button add-skill" type="button">
+                                <i class="fa-solid fa-plus"></i>
+                                Add Skill
+                            </button>
+
+                            <div class="skill-list"></div>
+
+                        </div>
+
                     </div>
 
                     <div class="editor-accordion">
@@ -196,7 +391,50 @@
                             <i class="fa-solid fa-chevron-down"></i>
                         </button>
 
-                        <div class="accordion-content"></div>
+
+                        <div class="accordion-content">
+
+                            <div class="certification-list">
+
+                                <div class="certification-item">
+
+                                    <div class="form-group">
+                                        <label>Certificate Name</label>
+                                        <input type="text" class="certification-name"
+                                            placeholder="e.g. Python for Everybody">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Issuing Organization</label>
+                                        <input type="text" class="certification-organization"
+                                            placeholder="e.g. University of Michigan">
+                                    </div>
+
+                                    <div class="form-row">
+
+                                        <div class="form-group">
+                                            <label>Issue Date</label>
+                                            <input type="text" class="certification-date" placeholder="e.g. March 2025">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Credential ID</label>
+                                            <input type="text" class="certification-id" placeholder="e.g. ABC12345">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <button class="add-button add-certification" type="button">
+                                <i class="fa-solid fa-plus"></i>
+                                Add Certification
+                            </button>
+
+                        </div>
+
                     </div>
 
                     <div class="editor-accordion">
@@ -205,7 +443,41 @@
                             <i class="fa-solid fa-chevron-down"></i>
                         </button>
 
-                        <div class="accordion-content"></div>
+
+                        <div class="accordion-content">
+
+                            <div class="language-list">
+
+                                <div class="language-item">
+
+                                    <div class="form-group">
+                                        <label>Language</label>
+                                        <input type="text" class="language-name" placeholder="e.g. English">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Proficiency Level</label>
+                                        <select class="language-level">
+                                            <option value="">Select proficiency</option>
+                                            <option value="Native">Native</option>
+                                            <option value="Fluent">Fluent</option>
+                                            <option value="Advanced">Advanced</option>
+                                            <option value="Intermediate">Intermediate</option>
+                                            <option value="Basic">Basic</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <button class="add-button add-language" type="button">
+                                <i class="fa-solid fa-plus"></i>
+                                Add Language
+                            </button>
+
+                        </div>
+
                     </div>
 
                     <div class="editor-accordion">
@@ -214,7 +486,25 @@
                             <i class="fa-solid fa-chevron-down"></i>
                         </button>
 
-                        <div class="accordion-content"></div>
+
+                        <div class="accordion-content">
+
+                            <div class="form-group">
+                                <label for="resume-color">Accent Color</label>
+                                <input type="color" id="resume-color" value="#800020">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="resume-font-size">Font Size</label>
+                                <select id="resume-font-size">
+                                    <option value="small">Small</option>
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="large">Large</option>
+                                </select>
+                            </div>
+
+                        </div>
+
                     </div>
 
                 </div>

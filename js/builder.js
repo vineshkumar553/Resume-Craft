@@ -1,9 +1,18 @@
+
 const urlparams = new URLSearchParams(window.location.search);
-const selectedtemplate = urlparams.get("template") || "modern";
+let selectedtemplate = urlparams.get("template") || "modern";
+
 const templatebuttons = document.querySelectorAll(".template-button");
 const resumepapers = document.querySelectorAll(".resume-paper");
 
 function changetemplate(template) {
+
+    const selectedbutton = document.querySelector('[data-template="' + template + '"]');
+    const selectedpaper = document.querySelector("." + template + "-resume");
+
+    if (!selectedbutton || !selectedpaper) {
+        template = "modern";
+    }
 
     templatebuttons.forEach(function (button) {
 

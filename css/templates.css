@@ -902,3 +902,246 @@
         padding: 0 20px;
     }
 }
+
+.executive-preview {
+    background-color: #e9e7e4;
+}
+
+.executive-resume-preview {
+    display: block;
+    min-height: 730px;
+    background-color: #ffffff;
+    color: #292929;
+    font-family: Arial, sans-serif;
+}
+
+.executive-preview-header {
+    padding: 38px 30px 25px;
+    background-color: #25272b;
+    color: #ffffff;
+}
+
+.executive-preview-header > span {
+    display: block;
+    margin-bottom: 16px;
+    color: #c7a1a8;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.executive-preview-header h3 {
+    margin-bottom: 7px;
+    color: #ffffff;
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.executive-preview-header > p {
+    color: #d5cdd0;
+    font-size: 12px;
+}
+
+.executive-preview-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-top: 25px;
+    padding-top: 14px;
+    border-top: 1px solid #55565a;
+}
+
+.executive-preview-contact p {
+    color: #e2dcdd;
+    font-size: 9px;
+}
+
+.executive-preview-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    gap: 25px;
+    padding: 30px;
+}
+
+.executive-preview-main,
+.executive-preview-side {
+    min-width: 0;
+}
+
+.executive-preview-section {
+    margin-bottom: 27px;
+}
+
+.executive-preview-section h4 {
+    margin-bottom: 13px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e4dfe0;
+    color: #800020;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.executive-preview-section > p {
+    margin-bottom: 8px;
+    color: #5d5b5b;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.executive-preview-section > strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #292929;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.executive-preview-entry {
+    margin-bottom: 20px;
+    padding-left: 12px;
+    border-left: 2px solid #d9c2c8;
+}
+
+.executive-preview-entry:last-child {
+    margin-bottom: 0;
+}
+
+.executive-preview-entry strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #292929;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.executive-preview-entry span {
+    display: block;
+    margin-bottom: 8px;
+    color: #8a6b72;
+    font-size: 9px;
+}
+
+.executive-preview-entry p,
+.executive-preview-entry li {
+    color: #5d5b5b;
+    font-size: 9px;
+    line-height: 1.7;
+}
+
+.executive-preview-entry ul {
+    margin: 7px 0 0;
+    padding-left: 15px;
+}
+
+.executive-preview-entry li {
+    margin-bottom: 5px;
+}
+
+.professional-preview {
+    background-color: #e9e7e4;
+}
+
+.professional-resume-preview {
+    min-height: 730px;
+    padding: 38px 32px;
+    background-color: #ffffff;
+    color: #292929;
+    font-family: Arial, sans-serif;
+}
+
+.professional-preview-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #292929;
+    text-align: center;
+}
+
+.professional-preview-header h3 {
+    margin-bottom: 7px;
+    color: #242424;
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.professional-preview-header > p {
+    margin-bottom: 14px;
+    color: #555555;
+    font-size: 12px;
+}
+
+.professional-preview-contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7px 16px;
+}
+
+.professional-preview-contact p {
+    color: #666666;
+    font-size: 9px;
+}
+
+.professional-preview-section {
+    margin-bottom: 25px;
+}
+
+.professional-preview-section h4 {
+    margin-bottom: 12px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #bcbcbc;
+    color: #292929;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+
+.professional-preview-section > p {
+    color: #555555;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.professional-preview-entry {
+    margin-bottom: 16px;
+}
+
+.professional-preview-entry:last-child {
+    margin-bottom: 0;
+}
+
+.professional-preview-entry strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #292929;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.professional-preview-entry span {
+    display: block;
+    margin-bottom: 7px;
+    color: #666666;
+    font-size: 9px;
+}
+
+.professional-preview-entry p,
+.professional-preview-entry li {
+    color: #555555;
+    font-size: 9px;
+    line-height: 1.6;
+}
+
+.professional-preview-entry ul {
+    margin: 7px 0 0;
+    padding-left: 16px;
+}
+
+.professional-preview-entry li {
+    margin-bottom: 4px;
+}

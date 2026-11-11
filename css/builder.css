@@ -1,4 +1,3 @@
-
 .builder-page {
     min-height: 100vh;
     background-color: #f7f4f5;
@@ -164,6 +163,7 @@
     gap: 28px;
     align-items: start;
 }
+
 .editor-panel {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -312,17 +312,19 @@
 }
 
 .template-switcher {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 4px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+    padding: 5px;
     background: var(--color-background);
     border: 1px solid var(--color-border);
     border-radius: 8px;
 }
 
 .template-button {
-    padding: 9px 12px;
+    grid-column: span 2;
+    width: 100%;
+    padding: 9px 5px;
     border: none;
     border-radius: 6px;
     background: transparent;
@@ -334,9 +336,19 @@
     transition: 0.2s ease;
 }
 
+.template-button:nth-child(4) {
+    grid-column: 2 / span 2;
+}
+
+.template-button:nth-child(5) {
+    grid-column: 4 / span 2;
+}
+
 .template-button.active {
-    background: var(--color-primary);
+    background-color: var(--color-primary);
     color: #ffffff;
+    border-radius: 6px;
+    width: 100%;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -413,6 +425,15 @@
     .resume-paper {
         min-height: 750px;
     }
+
+    .template-switcher {
+        gap: 10px;
+    }
+
+    .template-button {
+        padding: 9px 4px;
+        font-size: 10px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -443,13 +464,13 @@
     }
 
     .template-switcher {
-        width: 100%;
+        gap: 4px;
+        padding: 4px;
     }
 
     .template-button {
-        flex: 1;
-        padding: 10px 5px;
-        font-size: 10px;
+        padding: 8px 2px;
+        font-size: 9px;
     }
 
     .resume-preview {
@@ -472,6 +493,7 @@
     font-size: 13px;
     line-height: 1.6;
 }
+
 .modern-resume.active {
     display: grid;
 }
@@ -605,7 +627,7 @@
     margin-bottom: 0;
 }
 
-.modern-content .resume-entry > span {
+.modern-content .resume-entry>span {
     display: block;
     margin-bottom: 8px;
     color: #666666;
@@ -757,7 +779,7 @@
     overflow-wrap: anywhere;
 }
 
-.minimal-header > p {
+.minimal-header>p {
     margin-top: 7px;
     color: #800020;
     font-size: 13px;
@@ -820,7 +842,7 @@
     background-color: #800020;
 }
 
-.minimal-resume .resume-group > p {
+.minimal-resume .resume-group>p {
     margin-bottom: 8px;
     color: #4f484a;
     font-size: 11.5px;
@@ -846,7 +868,7 @@
     line-height: 1.5;
 }
 
-.minimal-resume .resume-entry > span {
+.minimal-resume .resume-entry>span {
     display: block;
     margin-bottom: 7px;
     color: #756a6e;
@@ -1114,7 +1136,7 @@
     font-size: 11px;
 }
 
-.creative-content .resume-entry > span {
+.creative-content .resume-entry>span {
     display: block;
     margin-bottom: 7px;
     color: #71809a;
@@ -1227,5 +1249,310 @@
     .creative-content .resume-group p,
     .creative-content .resume-entry li {
         font-size: 9px;
+    }
+}
+
+.professional-resume {
+    display: none;
+    padding: 48px 45px;
+    font-family: Arial, sans-serif;
+}
+
+.professional-resume.active {
+    display: block;
+}
+
+.professional-header {
+    padding-bottom: 22px;
+    border-bottom: 2px solid #242424;
+    text-align: center;
+}
+
+.professional-header h3 {
+    color: #222222;
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    overflow-wrap: anywhere;
+}
+
+.professional-header>p {
+    margin-top: 6px;
+    color: #555555;
+    font-size: 13px;
+}
+
+.professional-header .resume-contact-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px 15px;
+    margin-top: 15px;
+}
+
+.professional-header .resume-contact-info p {
+    margin: 0;
+    color: #555555;
+    font-size: 10px;
+    overflow-wrap: anywhere;
+}
+
+.professional-resume .resume-group {
+    margin-top: 25px;
+}
+
+.professional-resume .resume-group h4 {
+    margin-bottom: 12px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #bdbdbd;
+    color: #222222;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+
+.professional-resume .resume-group>p {
+    margin-bottom: 8px;
+    color: #444444;
+    font-size: 11px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.professional-resume .resume-entry {
+    margin-bottom: 17px;
+}
+
+.professional-resume .resume-entry:last-child {
+    margin-bottom: 0;
+}
+
+.professional-resume .resume-entry strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #222222;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.professional-resume .resume-entry>span {
+    display: block;
+    margin-bottom: 7px;
+    color: #666666;
+    font-size: 10px;
+}
+
+.professional-resume .resume-entry p {
+    margin-bottom: 6px;
+    color: #444444;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.professional-resume .resume-entry ul {
+    margin: 8px 0 0;
+    padding-left: 17px;
+}
+
+.professional-resume .resume-entry li {
+    margin-bottom: 5px;
+    color: #444444;
+    font-size: 10.5px;
+    line-height: 1.6;
+}
+
+.professional-resume .resume-skills-list,
+.professional-resume .resume-languages-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+}
+
+.professional-resume .resume-skills-list p,
+.professional-resume .resume-languages-list p {
+    margin: 0;
+    color: #444444;
+    font-size: 11px;
+}
+
+.professional-resume .resume-education-list,
+.professional-resume .resume-certifications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+@media (max-width: 480px) {
+    .professional-resume {
+        padding: 28px 18px;
+    }
+
+    .professional-header h3 {
+        font-size: 21px;
+    }
+
+    .professional-resume .resume-group h4 {
+        font-size: 11px;
+    }
+}
+
+.executive-resume {
+    display: none;
+    min-height: 100%;
+    padding: 0;
+    background-color: #ffffff;
+    color: #292929;
+    font-family: Arial, sans-serif;
+}
+.executive-resume.active {
+    display: block;
+}
+
+.executive-header {
+    padding: 38px 32px 25px;
+    background-color: #25272b;
+    color: #ffffff;
+}
+
+.executive-label {
+    display: block;
+    margin-bottom: 16px;
+    color: #c7a1a8;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.executive-header .resume-name {
+    margin-bottom: 7px;
+    color: #ffffff;
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.executive-header .resume-title {
+    color: #d5cdd0;
+    font-size: 12px;
+}
+
+.executive-header .resume-contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-top: 25px;
+    padding-top: 14px;
+    border-top: 1px solid #55565a;
+    color: #e2dcdd;
+    font-size: 9px;
+}
+
+.executive-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    gap: 25px;
+    padding: 30px 32px;
+}
+
+.executive-main,
+.executive-side {
+    min-width: 0;
+}
+
+.executive-resume .resume-group {
+    margin-bottom: 27px;
+}
+
+.executive-resume .resume-group h4 {
+    margin-bottom: 13px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e4dfe0;
+    color: #800020;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.executive-resume .resume-group>p {
+    color: #5d5b5b;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.executive-resume .resume-experience-list,
+.executive-resume .resume-project-list,
+.executive-resume .resume-education-list,
+.executive-resume .resume-certifications-list,
+.executive-resume .resume-skills-list,
+.executive-resume .resume-languages-list {
+    color: #5d5b5b;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.executive-resume .resume-experience-list>div,
+.executive-resume .resume-project-list>div,
+.executive-resume .resume-education-list>div,
+.executive-resume .resume-certifications-list>div {
+    margin-bottom: 16px;
+    padding-left: 12px;
+    border-left: 2px solid #d9c2c8;
+}
+
+.executive-resume .resume-experience-list strong,
+.executive-resume .resume-project-list strong,
+.executive-resume .resume-education-list strong,
+.executive-resume .resume-certifications-list strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #292929;
+    font-size: 11px;
+}
+
+.executive-resume .resume-skills-list span,
+.executive-resume .resume-languages-list span {
+    display: inline-block;
+    margin: 0 5px 7px 0;
+    padding: 4px 8px;
+    background-color: #f3edef;
+    color: #5b303b;
+    font-size: 9px;
+}
+
+@media (max-width: 768px) {
+    .executive-body {
+        grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+        gap: 15px;
+        padding: 25px;
+    }
+
+    .executive-header {
+        padding: 30px 25px 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .executive-header {
+        padding: 25px 18px 20px;
+    }
+
+    .executive-body {
+        grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+        gap: 10px;
+        padding: 20px 18px;
+    }
+
+    .executive-header .resume-name {
+        font-size: 23px;
+    }
+
+    .executive-header .resume-contact-info {
+        gap: 8px 12px;
     }
 }

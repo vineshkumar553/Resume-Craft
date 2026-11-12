@@ -507,7 +507,7 @@
     min-width: 0;
     min-height: 920px;
     padding: 42px 22px;
-    background-color: #650e25;
+    background-color: var(--resume-accent);
     color: #ffffff;
 }
 
@@ -520,7 +520,7 @@
     margin: 0 auto 42px;
     border-radius: 50%;
     background-color: #ffffff;
-    color: #650e25;
+    color: var(--resume-accent);
     font-family: Georgia, serif;
     font-size: 23px;
     font-weight: 400;
@@ -579,7 +579,7 @@
 
 .modern-header p {
     margin-top: 7px;
-    color: #985363;
+    color: var(--resume-accent);
     font-size: 12px;
     line-height: 1.5;
 }
@@ -765,7 +765,7 @@
     left: 50%;
     width: 65px;
     height: 3px;
-    background-color: #800020;
+    background-color: var(--resume-accent);
     transform: translateX(-50%);
 }
 
@@ -781,7 +781,7 @@
 
 .minimal-header>p {
     margin-top: 7px;
-    color: #800020;
+    color: var(--resume-accent);
     font-size: 13px;
     font-weight: 600;
 }
@@ -839,7 +839,7 @@
     left: 0;
     width: 38px;
     height: 2px;
-    background-color: #800020;
+    background-color: var(--resume-accent);
 }
 
 .minimal-resume .resume-group>p {
@@ -1003,7 +1003,7 @@
     width: 65px;
     height: 65px;
     border-radius: 50%;
-    background-color: #7188b1;
+    background-color: var(--resume-accent);
     color: #ffffff;
     font-family: Georgia, serif;
     font-size: 22px;
@@ -1020,7 +1020,7 @@
 
 .creative-profile p {
     margin-top: 6px;
-    color: #62769c;
+    color: var(--resume-accent);
     font-size: 12px;
 }
 
@@ -1264,7 +1264,7 @@
 
 .professional-header {
     padding-bottom: 22px;
-    border-bottom: 2px solid #242424;
+    border-bottom: 2px solid var(--resume-accent);
     text-align: center;
 }
 
@@ -1307,8 +1307,8 @@
 .professional-resume .resume-group h4 {
     margin-bottom: 12px;
     padding-bottom: 7px;
-    border-bottom: 1px solid #bdbdbd;
-    color: #222222;
+    border-bottom: 1px solid var(--resume-accent);
+    color: var(--resume-accent);
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
@@ -1422,7 +1422,7 @@
 .executive-label {
     display: block;
     margin-bottom: 16px;
-    color: #c7a1a8;
+    color: var(--resume-accent);
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -1474,7 +1474,7 @@
     margin-bottom: 13px;
     padding-bottom: 8px;
     border-bottom: 1px solid #e4dfe0;
-    color: #800020;
+    color: var(--resume-accent);
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
@@ -1504,7 +1504,7 @@
 .executive-resume .resume-certifications-list>div {
     margin-bottom: 16px;
     padding-left: 12px;
-    border-left: 2px solid #d9c2c8;
+    border-left: 2px solid var(--resume-accent);
 }
 
 .executive-resume .resume-experience-list strong,
@@ -1757,4 +1757,85 @@
 #resume-color::-moz-color-swatch {
     border: none;
     border-radius: 4px;
+}
+
+.experience-item {
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--color-border);
+}
+.project-item {
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.skill-item {
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.certification-item {
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.certification-item .remove-certification {
+    display: none;
+}
+
+.certification-list.multiple-certifications .remove-certification {
+    display: inline-flex;
+}
+
+.language-item {
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.language-item .remove-language {
+    display: none;
+}
+
+.language-list.multiple-languages .remove-language {
+    display: inline-flex;
+}
+
+.resume-paper {
+    --resume-accent: #800020;
+}
+
+.font-small {
+    font-size: 13px;
+}
+
+.font-medium {
+    font-size: 14px;
+}
+
+.font-large {
+    font-size: 16px;
+}
+
+.modern-resume {
+    --resume-accent: #650e25;
+}
+
+.minimal-resume {
+    --resume-accent: #800020;
+}
+
+.creative-resume {
+    --resume-accent: #7188b1;
+}
+
+.professional-resume {
+    --resume-accent: #222222;
+}
+
+.executive-resume {
+   --resume-accent: #c7a1a8;
 }

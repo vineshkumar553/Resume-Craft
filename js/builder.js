@@ -455,42 +455,10 @@ projectlist.addEventListener("input", function () {
 
 });
 
+const skillinput = document.querySelector("#skill-input");
 const skillslist = document.querySelector(".skill-list");
 const addskillbutton = document.querySelector(".add-skill");
 const resumeskilllists = document.querySelectorAll(".resume-skills-list");
-
-addskillbutton.addEventListener("click", function () {
-
-    const skillitem = document.createElement("div");
-
-    skillitem.classList.add("skill-item");
-
-    skillitem.innerHTML = `
-        <div class="form-group">
-            <label>Skill Name</label>
-            <input type="text" class="skill-name"
-                placeholder="e.g. JavaScript">
-        </div>
-
-        <button class="remove-button remove-skill" type="button">
-            <i class="fa-solid fa-trash"></i>
-            Remove Skill
-        </button>
-    `;
-
-    skillslist.appendChild(skillitem);
-
-});
-
-skillslist.addEventListener("click", function (event) {
-
-    if (event.target.closest(".remove-skill")) {
-        const skillitem = event.target.closest(".skill-item");
-        skillitem.remove();
-
-    }
-
-});
 
 function updateskills() {
 
@@ -502,16 +470,10 @@ function updateskills() {
 
         skillitems.forEach(function (item) {
 
-            const skill = item.querySelector(".skill-name").value;
-
-            if (!skill) {
-                return;
-            }
+            const skill = item.querySelector(".skill-name").textContent;
 
             const skillentry = document.createElement("span");
-
             skillentry.classList.add("skill-entry");
-
             skillentry.textContent = skill;
 
             list.appendChild(skillentry);
@@ -522,8 +484,62 @@ function updateskills() {
 
 }
 
-skillslist.addEventListener("input", function () {
+addskillbutton.addEventListener("click", function () {
+
+    const skill = skillinput.value.trim();
+
+    if (!skill) {
+        return;
+    }
+
+    const skillitems = skillslist.querySelectorAll(".skill-item");
+
+    let exists = false;
+
+    skillitems.forEach(function (item) {
+
+        if (item.querySelector(".skill-name").textContent.toLowerCase() === skill.toLowerCase()) {
+            exists = true;
+        }
+
+    });
+
+    if (exists) {
+        return;
+    }
+
+    const skillitem = document.createElement("div");
+    skillitem.classList.add("skill-item");
+
+    const skillname = document.createElement("span");
+    skillname.classList.add("skill-name");
+    skillname.textContent = skill;
+
+    const removebutton = document.createElement("button");
+    removebutton.classList.add("remove-button", "remove-skill");
+    removebutton.type = "button";
+    removebutton.innerHTML = '<i class="fa-solid fa-trash"></i> Remove Skill';
+
+    skillitem.appendChild(skillname);
+    skillitem.appendChild(removebutton);
+
+    skillslist.appendChild(skillitem);
+
+    skillinput.value = "";
+
     updateskills();
+
+});
+
+skillslist.addEventListener("click", function (event) {
+
+    if (event.target.closest(".remove-skill")) {
+
+        event.target.closest(".skill-item").remove();
+
+        updateskills();
+
+    }
 
 });
 

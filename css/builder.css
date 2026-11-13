@@ -1939,3 +1939,31 @@
     font-size: 11px;
     cursor: pointer;
 }
+
+/* Minimal Experience Line */
+
+.minimal-resume .resume-experience-list .experience-entry {
+    padding-left: 10px;
+    border-left: 2px solid #dfc5cc;
+}
+
+/* Professional Experience Line */
+
+.professional-resume .resume-experience-list .experience-entry {
+    padding-left: 10px;
+    border-left: 2px solid #dfc5cc;
+}
+
+/* Minimal Education Line */
+
+.minimal-resume .resume-education-list .education-entry {
+    padding-left: 10px;
+    border-left: 2px solid #dfc5cc;
+}
+
+/* Professional Education Line */
+
+.professional-resume .resume-education-list .education-entry {
+    padding-left: 10px;
+    border-left: 2px solid #dfc5cc;
+}

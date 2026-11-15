@@ -6,7 +6,6 @@ const templatebuttons = document.querySelectorAll(".template-button");
 const resumepapers = document.querySelectorAll(".resume-paper");
 
 function changetemplate(template) {
-
     const selectedbutton = document.querySelector('[data-template="' + template + '"]');
     const selectedpaper = document.querySelector("." + template + "-resume");
 
@@ -14,53 +13,33 @@ function changetemplate(template) {
         template = "modern";
     }
 
+    selectedtemplate = template;
+
     templatebuttons.forEach(function (button) {
-
-        button.classList.remove("active");
-
-        if (button.dataset.template === template) {
-            button.classList.add("active");
-        }
-
+        button.classList.toggle("active", button.dataset.template === template);
     });
 
     resumepapers.forEach(function (paper) {
-
-        paper.classList.remove("active");
-
-        if (paper.classList.contains(template + "-resume")) {
-            paper.classList.add("active");
-        }
-
+        paper.classList.toggle("active", paper.classList.contains(template + "-resume"));
     });
-
 }
 
 changetemplate(selectedtemplate);
 
 templatebuttons.forEach(function (button) {
-
     button.addEventListener("click", function () {
-
         changetemplate(button.dataset.template);
-
     });
-
 });
 
 const accordionheaders = document.querySelectorAll(".accordion-header");
 
 accordionheaders.forEach(function (header) {
-
     header.addEventListener("click", function () {
-
-        const accordion = header.parentElement;
-
-        accordion.classList.toggle("active");
-
+        header.parentElement.classList.toggle("active");
     });
-
 });
+
 
 const fullnameinput = document.querySelector("#full-name");
 const titleinput = document.querySelector("#professional-title");
@@ -68,86 +47,89 @@ const emailinput = document.querySelector("#email");
 const phoneinput = document.querySelector("#phone");
 const locationinput = document.querySelector("#location");
 const websiteinput = document.querySelector("#website");
+const summaryinput = document.querySelector("#professional-summary");
 
 const resumename = document.querySelectorAll(".resume-name");
 const resumetitle = document.querySelectorAll(".resume-title");
 const resumecontact = document.querySelectorAll(".resume-contact-info");
 
-fullnameinput.addEventListener("input", function () {
-    resumename.forEach(function (name) {
-        name.textContent = fullnameinput.value || "Your Name"
-    });
-});
+const resumesummary = document.querySelectorAll(
+    ".resume-summary, .minimal-summary, .creative-summary, .professional-summary, .executive-summary"
+);
 
-titleinput.addEventListener("input", function () {
+function updatename() {
+    resumename.forEach(function (name) {
+        name.textContent = fullnameinput.value || "Your Name";
+    });
+
+    const nameparts = fullnameinput.value.trim().split(/\s+/).filter(Boolean);
+
+    let initials = "YN";
+
+    if (nameparts.length > 0) {
+        initials = nameparts.length > 1
+            ? nameparts[0][0] + nameparts[nameparts.length - 1][0]
+            : nameparts[0].substring(0, 2);
+    }
+
+    document.querySelector(".modern-avatar").textContent = initials.toUpperCase();
+    document.querySelector(".creative-avatar").textContent = initials.toUpperCase();
+};
+
+function updatetitle() {
     resumetitle.forEach(function (title) {
-        title.textContent = titleinput.value || "Your Professional Title"
-    })
-})
+        title.textContent = titleinput.value || "Your Professional Title";
+    });
+}
 
 function updatecontact() {
-
     resumecontact.forEach(function (contact) {
-
         contact.innerHTML = "";
 
-        if (emailinput.value) {
-            const email = document.createElement("span");
-            email.textContent = emailinput.value;
-            contact.appendChild(email);
-        }
+        const contactdetails = [
+            emailinput.value,
+            phoneinput.value,
+            locationinput.value,
+            websiteinput.value
+        ];
 
-        if (phoneinput.value) {
-            const phone = document.createElement("span");
-            phone.textContent = phoneinput.value;
-            contact.appendChild(phone);
-        }
-
-        if (locationinput.value) {
-            const location = document.createElement("span");
-            location.textContent = locationinput.value;
-            contact.appendChild(location);
-        }
-
-        if (websiteinput.value) {
-            const website = document.createElement("span");
-            website.textContent = websiteinput.value;
-            contact.appendChild(website);
-        }
-
+        contactdetails.forEach(function (detail) {
+            if (detail) {
+                const span = document.createElement("span");
+                span.textContent = detail;
+                contact.appendChild(span);
+            }
+        });
     });
-
 }
+
+function updatesummary() {
+    resumesummary.forEach(function (summary) {
+        const paragraph = summary.querySelector("p");
+
+        if (paragraph) {
+            paragraph.textContent =
+                summaryinput.value || "Your professional summary will appear here";
+        }
+    });
+}
+
+fullnameinput.addEventListener("input", updatename);
+titleinput.addEventListener("input", updatetitle);
 
 emailinput.addEventListener("input", updatecontact);
 phoneinput.addEventListener("input", updatecontact);
 locationinput.addEventListener("input", updatecontact);
 websiteinput.addEventListener("input", updatecontact);
 
-const summaryinput = document.querySelector("#professional-summary");
+summaryinput.addEventListener("input", updatesummary);
 
-const resumesummary = document.querySelectorAll(
-    ".resume-summary, .minimal-summary, .creative-summary, .professional-summary, .executive-summary"
-);
-
-summaryinput.addEventListener("input", function () {
-
-    resumesummary.forEach(function (summary) {
-
-        summary.querySelector("p").textContent =
-            summaryinput.value || "Your professional summary will appear here";
-
-    });
-
-});
 
 const educationlist = document.querySelector(".education-list");
 const addeducationbutton = document.querySelector(".add-education");
-const educationinputs = document.querySelectorAll(
-    ".education-institution, .education-degree, .education-start, .education-end, .education-details"
-);
+const resumeeducationlists = document.querySelectorAll(".resume-education-list");
 
-addeducationbutton.addEventListener("click", function () {
+function addeducation() {
     const educationitem = document.createElement("div");
     educationitem.classList.add("education-item");
 
@@ -189,35 +171,33 @@ addeducationbutton.addEventListener("click", function () {
     `;
 
     educationlist.appendChild(educationitem);
-    educationlist.classList.add("multiple-education");
 
-});
+    if (educationlist.children.length > 1) {
+        educationlist.classList.add("multiple-education");
+    }
+}
+
+addeducationbutton.addEventListener("click", addeducation);
 
 educationlist.addEventListener("click", function (event) {
-
     if (event.target.closest(".remove-education")) {
-        const educationitem = event.target.closest(".education-item");
-        educationitem.remove();
+        event.target.closest(".education-item").remove();
 
-        if (educationlist.children.length === 1) {
+        if (educationlist.children.length <= 1) {
             educationlist.classList.remove("multiple-education");
         }
-    }
 
+        updateeducation();
+    }
 });
 
-const resumeeducationlists = document.querySelectorAll(".resume-education-list");
-
 function updateeducation() {
-
     resumeeducationlists.forEach(function (list) {
-
         list.innerHTML = "";
 
         const educationitems = educationlist.querySelectorAll(".education-item");
 
         educationitems.forEach(function (item) {
-
             const institution = item.querySelector(".education-institution").value;
             const degree = item.querySelector(".education-degree").value;
             const start = item.querySelector(".education-start").value;
@@ -228,35 +208,40 @@ function updateeducation() {
                 return;
             }
 
-            const educationentry = document.createElement("div");
-            educationentry.classList.add("education-entry");
+            const entry = document.createElement("div");
+            entry.classList.add("education-entry");
 
-            educationentry.innerHTML = `
-            <h5>${institution}</h5>
-            <p>${degree}</p>
-            <span>${start} - ${end}</span>
-            <p>${details}</p>`;
+            const heading = document.createElement("h5");
+            heading.textContent = institution;
 
-            list.appendChild(educationentry);
+            const degreeparagraph = document.createElement("p");
+            degreeparagraph.textContent = degree;
 
+            const date = document.createElement("span");
+            date.textContent = [start, end].filter(Boolean).join(" - ");
+
+            const detailparagraph = document.createElement("p");
+            detailparagraph.textContent = details;
+
+            entry.appendChild(heading);
+            entry.appendChild(degreeparagraph);
+            entry.appendChild(date);
+            entry.appendChild(detailparagraph);
+
+            list.appendChild(entry);
         });
-
     });
-
 }
-educationlist.addEventListener("input", function () {
 
-    updateeducation();
+educationlist.addEventListener("input", updateeducation);
 
-});
 
 const experiencelist = document.querySelector(".experience-list");
 const addexperiencebutton = document.querySelector(".add-experience");
+const resumeexperiencelists = document.querySelectorAll(".resume-experience-list");
 
-addexperiencebutton.addEventListener("click", function () {
-
+function addexperience() {
     const experienceitem = document.createElement("div");
-
     experienceitem.classList.add("experience-item");
 
     experienceitem.innerHTML = `
@@ -275,14 +260,12 @@ addexperiencebutton.addEventListener("click", function () {
         <div class="form-row">
             <div class="form-group">
                 <label>Start Date</label>
-                <input type="text" class="experience-start"
-                    placeholder="e.g. 2023">
+                <input type="text" class="experience-start" placeholder="e.g. 2023">
             </div>
 
             <div class="form-group">
                 <label>End Date</label>
-                <input type="text" class="experience-end"
-                    placeholder="e.g. 2025">
+                <input type="text" class="experience-end" placeholder="e.g. 2025">
             </div>
         </div>
 
@@ -299,31 +282,24 @@ addexperiencebutton.addEventListener("click", function () {
     `;
 
     experiencelist.appendChild(experienceitem);
+}
 
-});
+addexperiencebutton.addEventListener("click", addexperience);
 
 experiencelist.addEventListener("click", function (event) {
-
     if (event.target.closest(".remove-experience")) {
-        const experienceitem = event.target.closest(".experience-item");
-        experienceitem.remove();
-
+        event.target.closest(".experience-item").remove();
+        updateexperience();
     }
-
 });
 
-const resumeexperiencelists = document.querySelectorAll(".resume-experience-list");
-
 function updateexperience() {
-
     resumeexperiencelists.forEach(function (list) {
-
         list.innerHTML = "";
 
         const experienceitems = experiencelist.querySelectorAll(".experience-item");
 
         experienceitems.forEach(function (item) {
-
             const title = item.querySelector(".experience-title").value;
             const company = item.querySelector(".experience-company").value;
             const start = item.querySelector(".experience-start").value;
@@ -334,37 +310,40 @@ function updateexperience() {
                 return;
             }
 
-            const experienceentry = document.createElement("div");
+            const entry = document.createElement("div");
+            entry.classList.add("experience-entry");
 
-            experienceentry.classList.add("experience-entry");
+            const heading = document.createElement("h5");
+            heading.textContent = title;
 
-            experienceentry.innerHTML = `
-            <h5>${title}</h5>
-            <p>${company}</p>
-            <span>${start} - ${end}</span>
-            <p>${description}</p>`
-                ;
+            const companyparagraph = document.createElement("p");
+            companyparagraph.textContent = company;
 
-            list.appendChild(experienceentry);
+            const date = document.createElement("span");
+            date.textContent = [start, end].filter(Boolean).join(" - ");
 
+            const descriptionparagraph = document.createElement("p");
+            descriptionparagraph.textContent = description;
+
+            entry.appendChild(heading);
+            entry.appendChild(companyparagraph);
+            entry.appendChild(date);
+            entry.appendChild(descriptionparagraph);
+
+            list.appendChild(entry);
         });
-
     });
-
 }
-experiencelist.addEventListener("input", function () {
 
-    updateexperience();
+experiencelist.addEventListener("input", updateexperience);
 
-});
 
 const projectlist = document.querySelector(".project-list");
 const addprojectbutton = document.querySelector(".add-project");
+const resumeprojectlists = document.querySelectorAll(".resume-project-list");
 
-addprojectbutton.addEventListener("click", function () {
-
+function addproject() {
     const projectitem = document.createElement("div");
-
     projectitem.classList.add("project-item");
 
     projectitem.innerHTML = `
@@ -399,29 +378,24 @@ addprojectbutton.addEventListener("click", function () {
     `;
 
     projectlist.appendChild(projectitem);
+}
 
-});
+addprojectbutton.addEventListener("click", addproject);
+
 projectlist.addEventListener("click", function (event) {
-
     if (event.target.closest(".remove-project")) {
-        const projectitem = event.target.closest(".project-item");
-        projectitem.remove();
-
+        event.target.closest(".project-item").remove();
+        updateprojects();
     }
-
 });
-const resumeprojectlists = document.querySelectorAll(".resume-project-list");
 
 function updateprojects() {
-
     resumeprojectlists.forEach(function (list) {
-
         list.innerHTML = "";
 
         const projectitems = projectlist.querySelectorAll(".project-item");
 
         projectitems.forEach(function (item) {
-
             const name = item.querySelector(".project-name").value;
             const link = item.querySelector(".project-link").value;
             const technologies = item.querySelector(".project-technologies").value;
@@ -431,29 +405,39 @@ function updateprojects() {
                 return;
             }
 
-            const projectentry = document.createElement("div");
+            const entry = document.createElement("div");
+            entry.classList.add("project-entry");
 
-            projectentry.classList.add("project-entry");
+            const heading = document.createElement("h5");
+            heading.textContent = name;
 
-            projectentry.innerHTML = `
-            <h5>${name}</h5>
-            <p>${technologies}</p>
-            <p>${description}</p>
-            <a href="${link}" target="_blank">${link}</a>`;
-            
-            list.appendChild(projectentry);
+            const technologiesparagraph = document.createElement("p");
+            technologiesparagraph.textContent = technologies;
 
+            const descriptionparagraph = document.createElement("p");
+            descriptionparagraph.textContent = description;
+
+            entry.appendChild(heading);
+            entry.appendChild(technologiesparagraph);
+            entry.appendChild(descriptionparagraph);
+
+            if (link) {
+                const projectlink = document.createElement("a");
+                projectlink.href = link;
+                projectlink.textContent = link;
+                projectlink.target = "_blank";
+                projectlink.rel = "noopener noreferrer";
+
+                entry.appendChild(projectlink);
+            }
+
+            list.appendChild(entry);
         });
-
     });
+}
 
-};
+projectlist.addEventListener("input", updateprojects);
 
-projectlist.addEventListener("input", function () {
-
-    updateprojects();
-
-});
 
 const skillinput = document.querySelector("#skill-input");
 const skillslist = document.querySelector(".skill-list");
@@ -461,31 +445,24 @@ const addskillbutton = document.querySelector(".add-skill");
 const resumeskilllists = document.querySelectorAll(".resume-skills-list");
 
 function updateskills() {
-
     resumeskilllists.forEach(function (list) {
-
         list.innerHTML = "";
 
         const skillitems = skillslist.querySelectorAll(".skill-item");
 
         skillitems.forEach(function (item) {
-
             const skill = item.querySelector(".skill-name").textContent;
 
-            const skillentry = document.createElement("span");
-            skillentry.classList.add("skill-entry");
-            skillentry.textContent = skill;
+            const entry = document.createElement("span");
+            entry.classList.add("skill-entry");
+            entry.textContent = skill;
 
-            list.appendChild(skillentry);
-
+            list.appendChild(entry);
         });
-
     });
-
 }
 
 addskillbutton.addEventListener("click", function () {
-
     const skill = skillinput.value.trim();
 
     if (!skill) {
@@ -493,15 +470,12 @@ addskillbutton.addEventListener("click", function () {
     }
 
     const skillitems = skillslist.querySelectorAll(".skill-item");
-
     let exists = false;
 
     skillitems.forEach(function (item) {
-
         if (item.querySelector(".skill-name").textContent.toLowerCase() === skill.toLowerCase()) {
             exists = true;
         }
-
     });
 
     if (exists) {
@@ -528,27 +502,21 @@ addskillbutton.addEventListener("click", function () {
     skillinput.value = "";
 
     updateskills();
-
 });
 
 skillslist.addEventListener("click", function (event) {
-
     if (event.target.closest(".remove-skill")) {
-
         event.target.closest(".skill-item").remove();
-
         updateskills();
-
     }
-
 });
+
 
 const certificationlist = document.querySelector(".certification-list");
 const addcertificationbutton = document.querySelector(".add-certification");
 const resumecertificationlists = document.querySelectorAll(".resume-certifications-list");
 
-addcertificationbutton.addEventListener("click", function () {
-
+function addcertification() {
     const certificationitem = document.createElement("div");
     certificationitem.classList.add("certification-item");
 
@@ -587,37 +555,32 @@ addcertificationbutton.addEventListener("click", function () {
 
     certificationlist.appendChild(certificationitem);
 
-    certificationlist.classList.add("multiple-certifications");
+    if (certificationlist.children.length > 1) {
+        certificationlist.classList.add("multiple-certifications");
+    }
+}
 
-});
+addcertificationbutton.addEventListener("click", addcertification);
 
 certificationlist.addEventListener("click", function (event) {
-
     if (event.target.closest(".remove-certification")) {
+        event.target.closest(".certification-item").remove();
 
-        const certificationitem = event.target.closest(".certification-item");
-        certificationitem.remove();
-
-        if (certificationlist.children.length === 1) {
+        if (certificationlist.children.length <= 1) {
             certificationlist.classList.remove("multiple-certifications");
         }
 
         updatecertifications();
-
     }
-
 });
 
 function updatecertifications() {
-
     resumecertificationlists.forEach(function (list) {
-
         list.innerHTML = "";
 
         const certificationitems = certificationlist.querySelectorAll(".certification-item");
 
         certificationitems.forEach(function (item) {
-
             const name = item.querySelector(".certification-name").value;
             const organization = item.querySelector(".certification-organization").value;
             const date = item.querySelector(".certification-date").value;
@@ -627,49 +590,40 @@ function updatecertifications() {
                 return;
             }
 
-            const certificationentry = document.createElement("div");
+            const entry = document.createElement("div");
+            entry.classList.add("certification-entry");
 
-            certificationentry.classList.add("certification-entry");
+            const heading = document.createElement("h5");
+            heading.textContent = name;
 
-            const certificationname = document.createElement("h5");
-            certificationname.textContent = name;
+            const organizationparagraph = document.createElement("p");
+            organizationparagraph.textContent = organization;
 
-            const certificationorganization = document.createElement("p");
-            certificationorganization.textContent = organization;
+            const dateelement = document.createElement("span");
+            dateelement.textContent = date;
 
-            const certificationdate = document.createElement("span");
-            certificationdate.textContent = date;
+            const idelement = document.createElement("p");
+            idelement.textContent = id ? "Credential ID: " + id : "";
 
-            const certificationid = document.createElement("p");
-            certificationid.textContent = id ? "Credential ID: " + id : "";
+            entry.appendChild(heading);
+            entry.appendChild(organizationparagraph);
+            entry.appendChild(dateelement);
+            entry.appendChild(idelement);
 
-            certificationentry.appendChild(certificationname);
-            certificationentry.appendChild(certificationorganization);
-            certificationentry.appendChild(certificationdate);
-            certificationentry.appendChild(certificationid);
-
-            list.appendChild(certificationentry);
-
+            list.appendChild(entry);
         });
-
     });
-
 }
 
-certificationlist.addEventListener("input", function () {
+certificationlist.addEventListener("input", updatecertifications);
 
-    updatecertifications();
-
-});
 
 const languagelist = document.querySelector(".language-list");
 const addlanguagebutton = document.querySelector(".add-language");
 const resumelanguagelists = document.querySelectorAll(".resume-languages-list");
 
-addlanguagebutton.addEventListener("click", function () {
-
+function addlanguage() {
     const languageitem = document.createElement("div");
-
     languageitem.classList.add("language-item");
 
     languageitem.innerHTML = `
@@ -698,37 +652,33 @@ addlanguagebutton.addEventListener("click", function () {
     `;
 
     languagelist.appendChild(languageitem);
-    languagelist.classList.add("multiple-languages");
 
-});
+    if (languagelist.children.length > 1) {
+        languagelist.classList.add("multiple-languages");
+    }
+}
+
+addlanguagebutton.addEventListener("click", addlanguage);
 
 languagelist.addEventListener("click", function (event) {
-
     if (event.target.closest(".remove-language")) {
+        event.target.closest(".language-item").remove();
 
-        const languageitem = event.target.closest(".language-item");
-        languageitem.remove();
-
-        if (languagelist.children.length === 1) {
+        if (languagelist.children.length <= 1) {
             languagelist.classList.remove("multiple-languages");
         }
 
         updatelanguages();
-
     }
-
 });
 
 function updatelanguages() {
-
     resumelanguagelists.forEach(function (list) {
-
         list.innerHTML = "";
 
         const languageitems = languagelist.querySelectorAll(".language-item");
 
         languageitems.forEach(function (item) {
-
             const name = item.querySelector(".language-name").value;
             const level = item.querySelector(".language-level").value;
 
@@ -736,60 +686,364 @@ function updatelanguages() {
                 return;
             }
 
-            const languageentry = document.createElement("div");
+            const entry = document.createElement("div");
+            entry.classList.add("language-entry");
 
-            languageentry.classList.add("language-entry");
+            const heading = document.createElement("h5");
+            heading.textContent = name;
 
-            const languagename = document.createElement("h5");
-            languagename.textContent = name;
+            const levelparagraph = document.createElement("p");
+            levelparagraph.textContent = level;
 
-            const languagelevel = document.createElement("p");
-            languagelevel.textContent = level;
+            entry.appendChild(heading);
+            entry.appendChild(levelparagraph);
 
-            languageentry.appendChild(languagename);
-            languageentry.appendChild(languagelevel);
-
-            list.appendChild(languageentry);
-
+            list.appendChild(entry);
         });
-
     });
-
 }
 
-languagelist.addEventListener("input", function () {
+languagelist.addEventListener("input", updatelanguages);
+languagelist.addEventListener("change", updatelanguages);
 
-    updatelanguages();
-
-});
-
-languagelist.addEventListener("change", function () {
-
-    updatelanguages();
-
-});
 
 const resumecolorinput = document.querySelector("#resume-color");
 const resumefontsizeinput = document.querySelector("#resume-font-size");
-const resumepaper = document.querySelectorAll(".resume-paper");
 
-resumecolorinput.addEventListener("input", function () {
+function updatecustomization() {
+    const selectedpaper = document.querySelector("." + selectedtemplate + "-resume");
 
-    resumepaper.forEach(function (paper) {
-        paper.style.setProperty("--resume-accent", resumecolorinput.value);
+    if (selectedpaper && resumecolorinput.value) {
+        selectedpaper.style.setProperty("--resume-accent", resumecolorinput.value);
+    }
 
-    });
-
-});
-
-resumefontsizeinput.addEventListener("change", function () {
-
-    resumepaper.forEach(function (paper) {
-
+    resumepapers.forEach(function (paper) {
         paper.classList.remove("font-small", "font-medium", "font-large");
         paper.classList.add("font-" + resumefontsizeinput.value);
-
     });
+};
+
+resumecolorinput.addEventListener("input", updatecustomization);
+resumefontsizeinput.addEventListener("change", updatecustomization);
+
+
+const savestatus = document.querySelector(".save-status");
+const storagekey = "resumecraft-data";
+const builderpage = document.querySelector(".builder-page");
+
+function collectresumedata() {
+    const educationdata = [];
+    const educationitems = educationlist.querySelectorAll(".education-item");
+
+    educationitems.forEach(function (item) {
+        educationdata.push({
+            institution: item.querySelector(".education-institution").value,
+            degree: item.querySelector(".education-degree").value,
+            start: item.querySelector(".education-start").value,
+            end: item.querySelector(".education-end").value,
+            details: item.querySelector(".education-details").value
+        });
+    });
+
+    const experiencedata = [];
+    const experienceitems = experiencelist.querySelectorAll(".experience-item");
+
+    experienceitems.forEach(function (item) {
+        experiencedata.push({
+            title: item.querySelector(".experience-title").value,
+            company: item.querySelector(".experience-company").value,
+            start: item.querySelector(".experience-start").value,
+            end: item.querySelector(".experience-end").value,
+            description: item.querySelector(".experience-description").value
+        });
+    });
+
+    const projectdata = [];
+    const projectitems = projectlist.querySelectorAll(".project-item");
+
+    projectitems.forEach(function (item) {
+        projectdata.push({
+            name: item.querySelector(".project-name").value,
+            link: item.querySelector(".project-link").value,
+            technologies: item.querySelector(".project-technologies").value,
+            description: item.querySelector(".project-description").value
+        });
+    });
+
+    const skillsdata = [];
+    const skillitems = skillslist.querySelectorAll(".skill-item");
+
+    skillitems.forEach(function (item) {
+        skillsdata.push(item.querySelector(".skill-name").textContent);
+    });
+
+    const certificationsdata = [];
+    const certificationitems = certificationlist.querySelectorAll(".certification-item");
+
+    certificationitems.forEach(function (item) {
+        certificationsdata.push({
+            name: item.querySelector(".certification-name").value,
+            organization: item.querySelector(".certification-organization").value,
+            date: item.querySelector(".certification-date").value,
+            id: item.querySelector(".certification-id").value
+        });
+    });
+
+    const languagesdata = [];
+    const languageitems = languagelist.querySelectorAll(".language-item");
+
+    languageitems.forEach(function (item) {
+        languagesdata.push({
+            name: item.querySelector(".language-name").value,
+            level: item.querySelector(".language-level").value
+        });
+    });
+
+    return {
+        selectedtemplate: selectedtemplate,
+
+        personal: {
+            fullname: fullnameinput.value,
+            title: titleinput.value,
+            email: emailinput.value,
+            phone: phoneinput.value,
+            website: websiteinput.value,
+            location: locationinput.value
+        },
+
+        summary: summaryinput.value,
+
+        education: educationdata,
+        experience: experiencedata,
+        projects: projectdata,
+        skills: skillsdata,
+        certifications: certificationsdata,
+        languages: languagesdata,
+
+        customization: {
+            color: resumecolorinput.value,
+            fontsize: resumefontsizeinput.value
+        }
+    };
+}
+
+function savedata() {
+    const resumedata = collectresumedata();
+
+    localStorage.setItem(storagekey, JSON.stringify(resumedata));
+
+    savestatus.innerHTML = `
+        <i class="fa-solid fa-cloud-check"></i>
+        All changes saved
+    `;
+}
+
+builderpage.addEventListener("input", savedata);
+builderpage.addEventListener("change", savedata);
+
+builderpage.addEventListener("click", function () {
+    savedata();
+});
+
+
+function loadresume() {
+    const saveddata = localStorage.getItem(storagekey);
+
+    if (!saveddata) {
+        updatename();
+        updatetitle();
+        updatecontact();
+        updatesummary();
+        updateeducation();
+        updateexperience();
+        updateprojects();
+        updateskills();
+        updatecertifications();
+        updatelanguages();
+        updatecustomization();
+
+        return;
+    }
+
+    let resumedata;
+
+    try {
+        resumedata = JSON.parse(saveddata);
+    } catch (error) {
+        localStorage.removeItem(storagekey);
+        return;
+    }
+
+    const personal = resumedata.personal || {};
+    const customization = resumedata.customization || {};
+
+    fullnameinput.value = personal.fullname || "";
+    titleinput.value = personal.title || "";
+    emailinput.value = personal.email || "";
+    phoneinput.value = personal.phone || "";
+    websiteinput.value = personal.website || "";
+    locationinput.value = personal.location || "";
+
+    summaryinput.value = resumedata.summary || "";
+
+
+    educationlist.innerHTML = "";
+
+    (resumedata.education || []).forEach(function (education) {
+        addeducation();
+
+        const items = educationlist.querySelectorAll(".education-item");
+        const lastitem = items[items.length - 1];
+
+        lastitem.querySelector(".education-institution").value = education.institution || "";
+        lastitem.querySelector(".education-degree").value = education.degree || "";
+        lastitem.querySelector(".education-start").value = education.start || "";
+        lastitem.querySelector(".education-end").value = education.end || "";
+        lastitem.querySelector(".education-details").value = education.details || "";
+    });
+
+    if (educationlist.children.length <= 1) {
+        educationlist.classList.remove("multiple-education");
+    }
+
+
+    experiencelist.innerHTML = "";
+
+    (resumedata.experience || []).forEach(function (experience) {
+        addexperience();
+
+        const items = experiencelist.querySelectorAll(".experience-item");
+        const lastitem = items[items.length - 1];
+
+        lastitem.querySelector(".experience-title").value = experience.title || "";
+        lastitem.querySelector(".experience-company").value = experience.company || "";
+        lastitem.querySelector(".experience-start").value = experience.start || "";
+        lastitem.querySelector(".experience-end").value = experience.end || "";
+        lastitem.querySelector(".experience-description").value = experience.description || "";
+    });
+
+
+    projectlist.innerHTML = "";
+
+    (resumedata.projects || []).forEach(function (project) {
+        addproject();
+
+        const items = projectlist.querySelectorAll(".project-item");
+        const lastitem = items[items.length - 1];
+
+        lastitem.querySelector(".project-name").value = project.name || "";
+        lastitem.querySelector(".project-link").value = project.link || "";
+        lastitem.querySelector(".project-technologies").value = project.technologies || "";
+        lastitem.querySelector(".project-description").value = project.description || "";
+    });
+
+
+    skillslist.innerHTML = "";
+
+    (resumedata.skills || []).forEach(function (skill) {
+        const skillitem = document.createElement("div");
+        skillitem.classList.add("skill-item");
+
+        const skillname = document.createElement("span");
+        skillname.classList.add("skill-name");
+        skillname.textContent = skill;
+
+        const removebutton = document.createElement("button");
+        removebutton.classList.add("remove-button", "remove-skill");
+        removebutton.type = "button";
+        removebutton.innerHTML = '<i class="fa-solid fa-trash"></i> Remove Skill';
+
+        skillitem.appendChild(skillname);
+        skillitem.appendChild(removebutton);
+
+        skillslist.appendChild(skillitem);
+    });
+
+
+    certificationlist.innerHTML = "";
+
+    (resumedata.certifications || []).forEach(function (certification) {
+        addcertification();
+
+        const items = certificationlist.querySelectorAll(".certification-item");
+        const lastitem = items[items.length - 1];
+
+        lastitem.querySelector(".certification-name").value = certification.name || "";
+        lastitem.querySelector(".certification-organization").value = certification.organization || "";
+        lastitem.querySelector(".certification-date").value = certification.date || "";
+        lastitem.querySelector(".certification-id").value = certification.id || "";
+    });
+
+    if (certificationlist.children.length <= 1) {
+        certificationlist.classList.remove("multiple-certifications");
+    }
+
+
+    languagelist.innerHTML = "";
+
+    (resumedata.languages || []).forEach(function (language) {
+        addlanguage();
+
+        const items = languagelist.querySelectorAll(".language-item");
+        const lastitem = items[items.length - 1];
+
+        lastitem.querySelector(".language-name").value = language.name || "";
+        lastitem.querySelector(".language-level").value = language.level || "";
+    });
+
+    if (languagelist.children.length <= 1) {
+        languagelist.classList.remove("multiple-languages");
+    }
+
+
+    if (resumedata.selectedtemplate) {
+        changetemplate(resumedata.selectedtemplate);
+    }
+
+    if (customization.color) {
+        resumecolorinput.value = customization.color;
+    }
+
+    if (customization.fontsize) {
+        resumefontsizeinput.value = customization.fontsize;
+    }
+
+
+    updatename();
+    updatetitle();
+    updatecontact();
+    updatesummary();
+
+    updateeducation();
+    updateexperience();
+    updateprojects();
+    updateskills();
+    updatecertifications();
+    updatelanguages();
+
+    updatecustomization();
+}
+
+loadresume();
+
+const resetbutton = document.querySelector(".reset-button");
+
+resetbutton.addEventListener("click", function (event) {
+
+    event.stopPropagation();
+    const confirmreset = confirm("Are you sure you want to reset your resume?");
+
+    if (!confirmreset) {
+        return;
+    }
+
+    localStorage.removeItem(storagekey);
+    window.location.reload();
 
 });
 
+const downloadbutton = document.querySelector(".download-button");
+
+downloadbutton.addEventListener("click", function () {
+    window.print();
+});
